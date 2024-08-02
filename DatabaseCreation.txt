@@ -1,0 +1,71 @@
+--CREATE DATABASE Project;
+
+--Go
+
+
+--USE [Project]
+--GO
+
+--/****** Object:  Table [dbo].[ModuleInfo]    Script Date: 2023/11/13 22:11:26 ******/
+--SET ANSI_NULLS ON
+--GO
+
+--SET QUOTED_IDENTIFIER ON
+--GO
+
+--CREATE TABLE [dbo].[ModuleInfo](
+--	[ModuleCode] [varchar](10) NOT NULL,
+--	[ModuleName] [varchar](50) NOT NULL,
+--	[ModuleDescription] [varchar](255) NULL,
+--	[OnlineResource] [varchar](255) NULL,
+--PRIMARY KEY CLUSTERED 
+--(
+--	[ModuleCode] ASC
+--)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+--) ON [PRIMARY]
+--GO
+
+--USE [Project]
+--GO
+
+--/****** Object:  Table [dbo].[StudentInfo]    Script Date: 2023/11/13 22:14:51 ******/
+--SET ANSI_NULLS ON
+--GO
+
+--SET QUOTED_IDENTIFIER ON
+--GO
+
+--CREATE TABLE [dbo].[StudentInfo](
+--	[StudentNumber] [int] NOT NULL,
+--	[StudentName] [varchar](50) NOT NULL,
+--	[StudentSurname] [varchar](50) NOT NULL,
+--	[DOB] [varchar](20) NULL,
+--	[Gender] [varchar](10) NULL,
+--	[Phone] [varchar](15) NULL,
+--	[Address] [varchar](100) NULL,
+--	[ModuleCodes] [varchar](50) NULL,
+--PRIMARY KEY CLUSTERED 
+--(
+--	[StudentNumber] ASC
+--)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+--) ON [PRIMARY]
+--GO
+
+USE Project
+
+INSERT INTO dbo.ModuleInfo Values 
+( 'PRG282', 'Programing', 'A programing module for second year BCOMP students where they learn how to use text files and databases in their programs', 'https://www.belgiumcampus.ac.za/wp-content/uploads/2021/03/Programming-282-PRG282.pdf'),
+( 'DBD281', 'Database Development', 'This module for second year BCOMP students where they learn how to use SQL Databases', 'https://www.belgiumcampus.ac.za/wp-content/uploads/2021/03/Database-Development-281-DBD281.pdf'),
+( 'LPR281', 'Linear Programing', 'In this Linear Programing module for second year BCOMP students they learn how to do two pahse simplex and goal programming', 'https://www.belgiumcampus.ac.za/wp-content/uploads/2021/03/Linear-Programming-281-LPR281.pdf'),
+( 'WPR281', 'Web Programing', 'Web Programing for second year BCOMP students introduces them toe Javascript and shows them how it can be used to develop dynamic websites', 'https://www.belgiumcampus.ac.za/wp-content/uploads/2021/03/Web-Programming-281-WPR281.pdf')
+
+INSERT INTO dbo.StudentInfo Values 
+( 001, 'Sean', 'Botha', '10 March 2003', 'Male', '555 555 5555', '123 Home Street Home Pretoria South Africa', 'PRG282,DBD281'),
+( 002, 'Chaleigh', 'Storm', '16 August 2003', 'Female', '987 654 3210', '789 Home Avenue Pretoria South Africa', 'PRG282,DBD281,'),
+( 003, 'Daniël', 'Robbertse', '20 Desember 2003', 'Male', '123 456 7890', '456 Home road Pretoria South Africa', 'PRG282,DBD281'),
+( 004, 'Tiaan', 'Botes', '06 June 2003', 'Male', '071 313 6544', '555 Home Lane Pretoria South Africa', 'PRG282,DBD281')
+GO
+USE Project
+SELECT * FROM dbo.ModuleInfo
+SELECT * FROM dbo.StudentInfo
+GO
